@@ -1,0 +1,46 @@
+ElfUnknown's - Glacierfight
+
+Citesc din fisierul snowfight.in si afisez rezultatele in snowfight.out
+Aloc dinamic spatiu pt o matrice de structuri si un vector de structuri.
+Am 2 structuri , in Glaciar retin inaltimea ghetarului in coordonatele 
+respective, dimensiunea manusilor si id-ului playerului care se afla
+acolo la momentul respectiv. In ELf retin informatii despre fiecare 
+player (hp,stamina,coordonatele unde se afla,damage,daca mai e in viata 
+sau nu, numele acestuia).
+
+Citesc pana la finalul fisierului , fiecare player primeste damage 
+corespunzator manusilor din celula in care aterizeaza.
+Dupa ce am citit toate informatiile despre playeri, voi citi comenzile 
+ce vor fi executate de acestia.
+
+In cazul comenzii MOVE , playerul cu id-ul respectiv va trebuie sa efectueze
+un sir de comenzi de tipul "UDLR". In functie de U,D,L,R in functia mutare 
+schimb indicii cu care apelez functia move .
+In functia Move , daca elful are suficienta stamina si in urma mutarii nu cade
+de pe ghetar , acesta va avansa in celula corespunzatoare. Daca gaseste manusi
+mai bune, acesta le interschimba. Daca in celula urmatoare intalneste un alt 
+elf, acestia se vor batea pana la moarte.Ataca primul cel cu stamina mai mare
+, castigatorul bataii preia stamina invinsului.
+
+In cazul comenzii SNOWSTORM, numarul intreg K este convertit in cele 4 
+componente ale sale (dmg,raza,x,y) in functia base10_to_base2.
+Parcurg matricea , daca elful se afla in raza snowstorm-ului ii se va scadea
+din viata cantitatea dmg.
+
+In cazul comenzii MELTDOWN, parcurg vectorul de playeri. Daca playerul este
+in viata si se afla in noua raza atunci acesta va primi stamina, altfel
+se afiseaza mesajul "Got wet ...".
+Dupa mut elementele cu o pozitie in sus si o pozitie la stanga, apoi dezaloc
+ultimele 2 linii, si realoc astfel incat sa scap de ultimele 2 coloane
+
+In cazul comenzii PRINT_SCOREBOARD aloc spatiu pt un vector in care pun 
+numarul de killuri are unui player,un alt vector in care retin numele 
+playerilor si un alt vector in care retin daca playerul este "WET" ori 
+"DRY". Apoi sortez dupa urmatoarele criterii : WET/DRY, numarul de killuri
+si apoi in ordine lexicografica.
+
+In functia winner. Daca exista un castigator, jocul se va termina
+Am folosit un mic error-handling pt situatia in care nu exista castigatori sau
+sunt mai multi castigatori.
+
+P.s. : Si enuntul temei este in ROM-engleza, deci am pastrat acelasi format.
